@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>OAuth Callback</title>
+  <script>
+    const fragment = new URLSearchParams(window.location.hash.substring(1));
+    const accessToken = fragment.get('access_token');
+    if (accessToken) {
+      localStorage.setItem('access_token', accessToken);
+      window.location.href = '/ChatO-MG/index.html';
+    } else {
+      document.body.innerText = 'Error: Token no recibido.';
+    }
+  </script>
+</head>
+<body>
+  Esperando autenticación...
+</body>
+</html>
